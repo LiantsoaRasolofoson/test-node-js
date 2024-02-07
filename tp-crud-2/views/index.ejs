@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <h1>Home page content</h1>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/add">Add user</a></li>
+    </ul>
+    <% if (message) { %>
+        <strong><%= message.message %></strong>
+    <% } %>
+
+    <% if (users != '') { %>
+        <table border="1" cellspacing="0" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach((user, index) => { %>
+                    <tr>
+                        <td><%= index %></td>
+                        <td><img src="<%= user.image %>" width="50" alt=""></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.phone %></td>
+                        <td>
+                            <a href="/edit/<%= user._id %>">Edit</a>
+                            <a href="/delete/<%= user._id %>">Delete</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% }else{ %>
+        <h1>No users found in the database</h1>
+    <% } %>
+</body>
+
+</html>
