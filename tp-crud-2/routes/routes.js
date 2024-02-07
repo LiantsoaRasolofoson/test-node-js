@@ -26,7 +26,7 @@ router.post("/add", upload, async function(request, response){
         image: request.file.filename,
     });
     try {
-        await user.save();
+        // await user.save();
         request.session.message = {
             type: "success",
             message: "User added successfully!"
@@ -42,7 +42,21 @@ router.post("/add", upload, async function(request, response){
 
 router.get("/", async function(request, response){
     try {
-        const users = await User.find().exec();
+        // const users = await User.find().exec();
+        const users = [
+            {
+                name: "Liantsoa",
+                email: "liantsoarasolofoson@gmail.com",
+                phone: "0347715491",
+                image: "image_1705940631178_1.jpg"
+            },
+            {
+                name: "Ny Aina",
+                email: "nyaina@gmail.com",
+                phone: "0348615850",
+                image: "image_1705947018197_2.jpg"
+            }
+        ];
         response.render("index", {
             title: "Home Page",
             users: users

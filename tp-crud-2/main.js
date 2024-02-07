@@ -8,17 +8,17 @@ const app = express();
 const port = process.env.PORT;
 
 // connection to the database
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
-const db = mongoose.connection;
+// const db = mongoose.connection;
 
-db.on("error", function (error) {
-    console.log(error);
-});
+// db.on("error", function (error) {
+//     console.log(error);
+// });
 
-db.once("open", function () {
-    console.log("Connected to the database");
-});
+// db.once("open", function () {
+//     console.log("Connected to the database");
+// });
 
 // middlewares
 app.use(express.urlencoded({ extended: false }));
